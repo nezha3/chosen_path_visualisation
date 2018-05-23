@@ -17,7 +17,7 @@ else
 
     <title>Chosen Path Visualisation</title>
 
-    <script src="//d3js.org/d3.v3.min.js"></script><!-- D3 JS -->
+    <script type="text/javascript" src="js/d3.v3.min.js"></script><!-- D3 JS -->
     <link rel="stylesheet" type="text/css"
       href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"><!-- google font -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -26,11 +26,9 @@ else
 
   <body>
 
-
-
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="chart.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
   </body>
 </html>
 
