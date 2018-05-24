@@ -1,11 +1,8 @@
-slider(100, 1000, 10, 10, "name1", "#slider1")
-slider(100, 1000, 10, -120, "name2", "#slider2")
-slider(100, 1000, 10, -240, "name3", "#slider3")
-slider(100, 1000, 10, -360, "name4", "#slider4")
-
 // Draw A Slider With Two Selectors
+// @ Oliver Chi  2018. 05
 // Every Selector Cannot Go Over the Ranger Setted by Another Selector
 // Inspired By Harry Stevens's Ranger Slider (single selector)
+
 function slider(min, max, x, y, name, divID){
 			// Data Domain (min, max)
 			var domain_min = min, domain_max = max;
@@ -16,24 +13,24 @@ function slider(min, max, x, y, name, divID){
 			// Slider Range
 			var range_width = 500, range_height = 100;
 			// Initial Variables
-			var handle_radius = 25,
-				handle_start_val = domain_min,
-				handle_start_val2 = domain_max,
-				x1 = 0,
-				x2 = range_width,
-				handle_padding = 10,
-				slider_height = 5,
-				axis_height = 20;
+			var handle_radius = 25,	//handle circle radium
+				handle_start_val = domain_min, //start position for first pointer
+				handle_start_val2 = domain_max, //start position for second pointer
+				x1 = 0,													//initial record mouse position for first pointer
+				x2 = range_width,								//initial record mouse position for second pointer
+				handle_padding = 10,	//handle padding
+				slider_height = 5,		//slider line height
+				axis_height = 20;			//slider axis height include label
 
 			// SVG
 			var range_svg = d3.select(divID)
 				.append("svg")
-				.attr("width", 650)
-				.attr("height", 250)
-				.attr("transform", "translate("+ x + ", "+ y + ")");
+				.attr("width", 650)     //svg width
+				.attr("height", 250)		//svg height
+				.attr("transform", "translate("+ x + ", "+ y + ")");  //x,y for svg at left top corner
 
 			// Scale
-			var range_x = d3.scaleLinear()
+			var range_x = d3.scaleLinear()  //depend on data alternative using scaleLog
 					.range([0, range_width])
 					.domain([domain_min, domain_max]);
 
@@ -130,6 +127,7 @@ function slider(min, max, x, y, name, divID){
 					);
 
 
+
 			// Draw Pointers
 			function calcPointerPoints(handle_val){
 				xp = range_x(handle_val) + 100;
@@ -144,7 +142,7 @@ function slider(min, max, x, y, name, divID){
 				var coordinates = [0, 0];
 	      coordinates = d3.mouse(this);
 	      var x = coordinates[0];
-	      x = x > x2 ? x2 :
+	      x = x > x2 ? x2 : //not able to go over another pointer
 	      	x < 0 ? 0 :
 	      	x;
 				x1 = x; // store current position
@@ -169,7 +167,7 @@ function slider(min, max, x, y, name, divID){
 	      coordinates = d3.mouse(this);
 	      var x = coordinates[0];
 	      x = x > range_width ? range_width :
-	      	x < x1 ? x1 :
+	      	x < x1 ? x1 : //not able to go over another pointer
 	      	x;
 				x2 = x;// store current position
 

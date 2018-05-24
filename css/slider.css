@@ -1,0 +1,68 @@
+body {
+		margin: 10;
+		font-family: "Helvetica Neue", sans-serif;
+	}
+
+
+  /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+   * Slider
+   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	.range-body {
+		fill: #666;
+	}
+  /* axis label */
+	.range-label {
+		fill: #fff;
+		text-anchor: middle;
+		font-size: 1em;
+		pointer-events: none;
+	}
+  /* axis for all sliders */
+	.range-axis line, .range-axis path {
+		stroke: #666;
+	}
+	.range-axis text {
+		fill: #666;
+	}
+  /* text inside pointers for all sliders */
+  .range-label2 {
+    fill: #fff;
+    text-anchor: middle;
+    font-size: 1em;
+    pointer-events: none;
+  }
+  /* first pointer for all sliders */
+  #slider1 .range-dragger {
+		fill: #80b3ff;
+		cursor: pointer;
+	}
+  #slider2 .range-dragger {
+		fill: #bbff33;
+		cursor: pointer;
+	}
+  #slider3 .range-dragger {
+		fill: #ffa64d;
+		cursor: pointer;
+	}
+  #slider4 .range-dragger {
+		fill: #4dffff;
+		cursor: pointer;
+	}
+  /* second pointer for all sliders */
+  #slider1 .range-dragger2{
+    fill: #1a75ff;
+    cursor: pointer;
+  }
+  #slider2 .range-dragger2{
+    fill: #88cc00;
+    cursor: pointer;
+  }
+  #slider3 .range-dragger2{
+    fill: #e67300;
+    cursor: pointer;
+  }
+  #slider4 .range-dragger2{
+    fill: #009999;
+    cursor: pointer;
+  }
+  /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */

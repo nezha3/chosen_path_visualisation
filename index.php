@@ -26,7 +26,11 @@ else
     </head>
 
   <body>
-      <div id="range"></div>
+    <!-- Sliders -->
+      <div id="slider1"></div>
+      <div id="slider2"></div>
+      <div id="slider3"></div>
+      <div id="slider4"></div>
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
