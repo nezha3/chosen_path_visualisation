@@ -21,13 +21,17 @@ else
     <link rel="stylesheet" type="text/css"
       href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"><!-- google font -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/slider.css">
 
     </head>
 
   <body>
+      <div id="range"></div>
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+	  <script src="https://d3js.org/d3.v4.min.js"></script>
+	  <script src="https://unpkg.com/d3-marcon@2.0.2/build/d3-marcon.min.js"></script>
     <script type="text/javascript" src="js/chart.js"></script>
   </body>
 </html>
