@@ -31,6 +31,13 @@ else
       <div id="slider2"></div>
       <div id="slider3"></div>
       <div id="slider4"></div>
+    <!-- Store Results From Sliders -->
+      <s id="s1-min"></s><s id="s1-max"></s>
+      <s id="s2-min"></s><s id="s2-max"></s>
+      <s id="s3-min"></s><s id="s3-max"></s>
+      <s id="s4-min"></s><s id="s4-max"></s>
+
+
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>

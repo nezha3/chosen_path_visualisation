@@ -1,12 +1,12 @@
-slider(100, 1000, 10, 10, "name1", "#slider1")
-slider(100, 1000, 10, -120, "name2", "#slider2")
-slider(100, 1000, 10, -240, "name3", "#slider3")
-slider(100, 1000, 10, -360, "name4", "#slider4")
+slider(100, 1000, 10, 10, "name1", "1")
+slider(100, 1000, 10, -120, "name2", "2")
+slider(100, 1000, 10, -240, "name3", "3")
+slider(100, 1000, 10, -360, "name4", "4")
 
 // Draw A Slider With Two Selectors
 // Every Selector Cannot Go Over the Ranger Setted by Another Selector
 // Inspired By Harry Stevens's Ranger Slider (single selector)
-function slider(min, max, x, y, name, divID){
+function slider(min, max, x, y, name, id){
 			// Data Domain (min, max)
 			var domain_min = min, domain_max = max;
 			// Data Name and Silder Name
@@ -26,7 +26,7 @@ function slider(min, max, x, y, name, divID){
 				axis_height = 20;
 
 			// SVG
-			var range_svg = d3.select(divID)
+			var range_svg = d3.select("#slider" + id)
 				.append("svg")
 				.attr("width", 650)
 				.attr("height", 250)
@@ -129,6 +129,11 @@ function slider(min, max, x, y, name, divID){
 						.on("drag", dragged2)
 					);
 
+			// Store Selected Min and Max
+			d3.select("#s" + id + "-min")
+				.text(Math.round(range_x.invert(x1)));
+			d3.select("#s" + id + "-max")
+				.text(Math.round(range_x.invert(x2)));
 
 			// Draw Pointers
 			function calcPointerPoints(handle_val){
@@ -161,6 +166,10 @@ function slider(min, max, x, y, name, divID){
 
 	      range_svg.select(".range-pointer")
 	      		.attr("points", calcPointerPoints(pct));
+
+				// Store Selected Min
+				d3.select("#s" + id + "-min")
+						.text(Math.round(range_x.invert(x1)));
 			}
 
 			// Deal with Second Pointer Position Change
@@ -185,6 +194,10 @@ function slider(min, max, x, y, name, divID){
 
 	      range_svg.select(".range-pointer2")
 	      		.attr("points", calcPointerPoints(pct));
+
+				// Store Selected Max
+				d3.select("#s" + id + "-max")
+					.text(Math.round(range_x.invert(x2)));
 			}
 
 			// Reset Position of Pointers
