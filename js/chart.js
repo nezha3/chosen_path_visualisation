@@ -19,7 +19,7 @@
 
 		var range_svg = d3.select("#range")
 			.append("svg")
-			.attr("width", 700)
+			.attr("width", 650)
 			.attr("height", 250)
 			.attr("transform", "translate(10, 10)");
 
@@ -37,8 +37,22 @@
 				.text(slider_name);
 
 		//Reset Button For Slider
-		range_svg.appeng("rect")
-				.attr()
+		range_svg.append("rect")
+				.attr("x", 550)
+				.attr("y", 0)
+				.attr("width", 50)
+				.attr("height", 18)
+				.on("click", reset)
+				.attr("fill", "#4d94ff");
+		range_svg.append("text")
+				.attr("class", "slider-label")
+				.attr("x", 554)
+				.attr("y", 0)
+				.attr("dy", "1em")
+				.attr("fill", "white")
+				.attr("font-size", "0.8em")
+				.text("RESET")
+				.on("click", reset);
 
 		// the range axis
 		range_svg.append("g")
@@ -164,4 +178,27 @@
 
       range_svg.select(".range-pointer2")
       		.attr("points", calcPointerPoints(pct));
+		}
+
+
+		function reset(){
+			range_svg.select(".range-handle")
+      		.attr("cx", range_x(handle_start_val) + 100);
+
+      range_svg.select(".range-label")
+      		.attr("x", range_x(handle_start_val) + 100)
+      		.text(handle_start_val);
+
+      range_svg.select(".range-pointer")
+      		.attr("points", calcPointerPoints(handle_start_val));
+
+			range_svg.select(".range-handle2")
+		      .attr("cx", range_x(handle_start_val2) + 100);
+
+		  range_svg.select(".range-label2")
+		      .attr("x", range_x(handle_start_val2) + 100)
+		      .text(handle_start_val2);
+
+		  range_svg.select(".range-pointer2")
+		      .attr("points", calcPointerPoints(handle_start_val2));
 		}
