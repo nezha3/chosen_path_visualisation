@@ -22,27 +22,37 @@ else
       href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"><!-- google font -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/slider.css">
+    <link rel="stylesheet" type="text/css" href="css/sunburst.css">
 
     </head>
 
   <body>
     <!-- Sliders -->
+      <!--
       <div id="slider1"></div>
       <div id="slider2"></div>
       <div id="slider3"></div>
       <div id="slider4"></div>
+      <div id="slider5"></div>
+      <div id="slider6"></div>
+      -->
     <!-- Store Results From Sliders -->
+      <!--
       <s id="s1-min"></s><s id="s1-max"></s>
       <s id="s2-min"></s><s id="s2-max"></s>
       <s id="s3-min"></s><s id="s3-max"></s>
       <s id="s4-min"></s><s id="s4-max"></s>
+      <s id="s5-min"></s><s id="s5-max"></s>
+      <s id="s6-min"></s><s id="s6-max"></s>
+      -->
 
 
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
 	  <script src="https://d3js.org/d3.v4.min.js"></script>
-	  <script src="https://unpkg.com/d3-marcon@2.0.2/build/d3-marcon.min.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript" src="js/sunburst.js"></script>
     <script type="text/javascript" src="js/chart.js"></script>
   </body>
 </html>
