@@ -1,5 +1,15 @@
+// D3 JS Sunburst chart
+// @ Oliver Chi  2018.05
+// input dataset is an 6*2 Array
 
-d3.csv("dataset/data.csv", function (data){ // Read data from data.csv
+
+// Gobal Varibles
+var range = [[],[],[],[],[],[]]; // Input for sunburst chart
+var dataset; // Copy of data.csv
+var dataset_selected; // Dataset after action of selecting range, changed with every selection
+
+	// Main function
+	d3.csv("dataset/data.csv", function (data){ // Read data from data.csv
 
 		// DOM elements for bootstrap grid
 		var container = d3.select("body").append("div")
@@ -34,7 +44,7 @@ d3.csv("dataset/data.csv", function (data){ // Read data from data.csv
 			.attr("id", "sunburst");
 
 		// DOM elements for data from sliders
-		var div_data = row2.append("div")
+		/*var div_data = row2.append("div")
 			.attr("id", "data")
 			.attr("class", "col");
 		div_data.append("s")
@@ -60,7 +70,7 @@ d3.csv("dataset/data.csv", function (data){ // Read data from data.csv
 		div_data.append("s")
 			.attr("id", "s5-max");
 		div_data.append("s")
-			.attr("id", "s6-max");
+			.attr("id", "s6-max");*/
 
 		// Name Slider Label
 		Name = ["Planetary mass [Jupiter masses]","Radius [Jupiter radii]","Eccentricity","Surface or equilibrium temperature [K]","Distance from Sun [parsec]","Host star temperature [K]"];
@@ -87,7 +97,14 @@ d3.csv("dataset/data.csv", function (data){ // Read data from data.csv
 		slider(min5, (parseInt(max5) + 1), 10, 10, Name[4], "5");
 		slider(min6, (parseInt(max6) + 1), 10, 10, Name[5], "6");
 
-		// Draw Sunburst
-		sunburst();
+		// Copy data to dataset
+		dataset = data;
+		var dataset_length = data.length;
 
-})
+		// Init dataset for Sunburst
+		range = [[1,0],[1,0],[1,0],[1,0],[1,0],[1,0]];
+
+		// Draw Sunburst
+		sunburst(range);
+
+	});

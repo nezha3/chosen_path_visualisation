@@ -148,12 +148,6 @@ function slider(min, max, x, y, name, id){
 						.on("drag", dragged2)
 					);
 
-			// Store Selected Min and Max
-			d3.select("#s" + id + "-min")
-					.text(Math.round(range_x.invert(x1))/times);
-			d3.select("#s" + id + "-max")
-					.text(Math.round(range_x.invert(x2))/times);
-
 
 			// Draw Pointers
 			function calcPointerPoints(handle_val){
@@ -187,9 +181,9 @@ function slider(min, max, x, y, name, id){
 	      range_svg.select(".range-pointer")
 	      		.attr("points", calcPointerPoints(pct));
 
-				// Store Selected Min
-				d3.select("#s" + id + "-min")
-						.text(Math.round(range_x.invert(x1))/times);
+				// store range
+				range[id-1] = [Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times];
+
 			}
 
 			// Deal with Second Pointer Position Change
@@ -215,9 +209,9 @@ function slider(min, max, x, y, name, id){
 	      range_svg.select(".range-pointer2")
 	      		.attr("points", calcPointerPoints(pct));
 
-				// Store Selected Max
-				d3.select("#s" + id + "-max")
-					.text(Math.round(range_x.invert(x2))/times);
+				// store range
+				range[id-1] = [Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times];
+
 			}
 
 			// Reset Position of Pointers
@@ -245,7 +239,11 @@ function slider(min, max, x, y, name, id){
 			      .attr("points", calcPointerPoints(handle_start_val2));
 
 				x1 = 0;
-				x2 = 0;
+				x2 = range_width;
+
+				// restore range
+				range[id-1] = [Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times];
 			}
+
 
 	}
