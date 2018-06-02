@@ -16,13 +16,16 @@ else
     <meta charset="utf-8">
 
     <title>Chosen Path Visualisation</title>
-
-    <script type="text/javascript" src="js/d3.v3.min.js"></script><!-- D3 JS -->
     <link rel="stylesheet" type="text/css"
       href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"><!-- google font -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/slider.css">
     <link rel="stylesheet" type="text/css" href="css/sunburst.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	  <script src="https://d3js.org/d3.v4.min.js"></script>
 
     </head>
 
@@ -45,17 +48,18 @@ else
       <s id="s5-min"></s><s id="s5-max"></s>
       <s id="s6-min"></s><s id="s6-max"></s>
       -->
+      <div id="chart"></div>
+      <div class="">
 
+      </div>
+      <div class="">
 
-
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-	  <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script type="text/javascript" src="js/chart.js"></script>
-    <script type="text/javascript" src="js/slider.js"></script>
-    <script type="text/javascript" src="js/sunburst.js"></script>
+      </div>
   </body>
-</html>
+  <script type="text/javascript" src="js/chart.js"></script>
+  <script type="text/javascript" src="js/slider.js"></script>
+  <script type="text/javascript" src="js/sunburst.js"></script>
+  </html>
 
 <?
 }

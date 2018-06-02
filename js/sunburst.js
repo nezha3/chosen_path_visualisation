@@ -7,10 +7,11 @@
 function sunburst(dataset){
 
     // SVG
-    var svg = d3.select("#sunburst").append("svg")
+    var svg = d3.select("#svg").append("g")
       .attr("width", 800)
       .attr("height", 800)
-      .attr("id","sunburst_svg");
+      .attr("id","sunburst_svg")
+      .attr("transform", "translate(520,10)");;
 
     // Canvas
     var svg1 = svg.append("g")
@@ -27,17 +28,17 @@ function sunburst(dataset){
       .attr("transform", "translate(400,400)");
 
 
-    // Color
-    var color = d3.scale.category20();
+    // Color d3: d3.scale.category20()
+    var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-    // Pie
-    var pie = d3.layout.pie()
+    // Pie d3: d3.layout.pie()
+    var pie = d3.pie()
         .value(function(d) { return d; })
         .sort(null);
 
     // 1st Donut //
-    // arc
-    var arc1 = d3.svg.arc()
+    // arc d3: d3.svg.arc()
+    var arc1 = d3.arc()
         .innerRadius(340)
         .outerRadius(380);
 
@@ -51,8 +52,8 @@ function sunburst(dataset){
         .attr("d", arc1);
 
     // 2nd Donut //
-    // arc
-    var arc2 = d3.svg.arc()
+    // arc d3: d3.svg.arc()
+    var arc2 = d3.arc()
         .innerRadius(300)
         .outerRadius(340);
 
@@ -67,8 +68,8 @@ function sunburst(dataset){
 
 
     // 3th Donut //
-    // arc
-    var arc3 = d3.svg.arc()
+    // arc d3: d3.svg.arc()
+    var arc3 = d3.arc()
         .innerRadius(260)
         .outerRadius(300);
 
@@ -82,8 +83,8 @@ function sunburst(dataset){
         .attr("d", arc3);
 
     // 4th Donut //
-    // arc
-    var arc4 = d3.svg.arc()
+    // arc d3: d3.svg.arc()
+    var arc4 = d3.arc()
         .innerRadius(220)
         .outerRadius(260);
 
@@ -97,8 +98,8 @@ function sunburst(dataset){
         .attr("d", arc4);
 
     // 5th Donut //
-    // arc
-    var arc5 = d3.svg.arc()
+    // arc d3: d3.svg.arc()
+    var arc5 = d3.arc()
         .innerRadius(180)
         .outerRadius(220);
 
@@ -112,8 +113,8 @@ function sunburst(dataset){
         .attr("d", arc5);
 
     // 6th Donut  //
-    // arc
-    var arc6 = d3.svg.arc()
+    // arc d3: d3.svg.arc()
+    var arc6 = d3.arc()
         .innerRadius(140)
         .outerRadius(180);
 

@@ -12,7 +12,12 @@
 // If only use D3.v3, please replace the function scaleLinear at line 41.
 //////////////////////////////////////////////////////////////////////////////
 
-function slider(min, max, x, y, name, id){
+function slider(min, max, location_x, location_y, name, id){
+	// (min, max) is range of data,
+	// (x,y) is location,
+	// name is chart label
+	// id is count from up chart, start at 1
+
 			// Data Domain (min, max)
 			var domain_min, domain_max, times;
 			// var times is able to justify the range of data to a comfortable zone (0~100)
@@ -31,7 +36,7 @@ function slider(min, max, x, y, name, id){
 
 
 			// Slider Range
-			var range_width = 455, range_height = 90;
+			var range_width = 400, range_height = 95;
 			// Initial Variables
 			var handle_radius = 25,	//handle circle radium
 				handle_start_val = domain_min, //start position for first pointer
@@ -43,14 +48,14 @@ function slider(min, max, x, y, name, id){
 				axis_height = 20;			//slider axis height include label
 
 			// SVG
-			var range_svg = d3.select("#slider" + id)
-				.append("svg")
-				.attr("width", range_width)     //svg width
-				.attr("height", range_height + slider_height + axis_height)		//svg height
-				.attr("transform", "translate(10, 10)");  //x,y for svg at left top corner
+			var range_svg = d3.select("#svg").append("g") //container is svg background
+				.attr("id", "slider" + id)
+				.attr("width", 500)     //svg width
+				.attr("height", 125)		//svg height
+				.attr("transform", "translate("+ location_x +", "+ location_y +")");  //x,y for svg from left top corner
 
 			// Scale (d3 using d3.scale.linear) (d4 using d3.scaleLinear)
-			var range_x = d3.scale.linear()  //depend on data alternative using scaleLog
+			var range_x = d3.scaleLinear()  //depend on data alternative using scaleLog
 					.range([0, range_width])
 					.domain([domain_min, domain_max]);
 			var range_x_times = d3.scaleLinear()  //depend on data alternative using scaleLog
