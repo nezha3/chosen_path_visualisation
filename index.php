@@ -51,9 +51,9 @@ else
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
 	  <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
     <script type="text/javascript" src="js/slider.js"></script>
     <script type="text/javascript" src="js/sunburst.js"></script>
-    <script type="text/javascript" src="js/chart.js"></script>
   </body>
 </html>
 

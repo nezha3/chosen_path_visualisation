@@ -2,6 +2,7 @@
 // @ Oliver Chi  2018.05
 // Thanks for ideas from Mike Bostock's static Donut chart
 // Input dataset is an 6*2 Array to match main function(chart.js)
+//////////////////////////////////////////////////////////////////////////////
 
 function sunburst(dataset){
 
@@ -11,7 +12,7 @@ function sunburst(dataset){
       .attr("height", 800)
       .attr("id","sunburst_svg");
 
-    // canvas
+    // Canvas
     var svg1 = svg.append("g")
         .attr("transform", "translate(400,400)");
     var svg2 = svg.append("g")
@@ -26,15 +27,15 @@ function sunburst(dataset){
       .attr("transform", "translate(400,400)");
 
 
-    // color
+    // Color
     var color = d3.scale.category20();
 
-    // pie
+    // Pie
     var pie = d3.layout.pie()
         .value(function(d) { return d; })
         .sort(null);
 
-    // 1st Donut
+    // 1st Donut //
     // arc
     var arc1 = d3.svg.arc()
         .innerRadius(340)
@@ -49,7 +50,7 @@ function sunburst(dataset){
         .style("fill-rule", "evenodd")
         .attr("d", arc1);
 
-    // 2nd Donut
+    // 2nd Donut //
     // arc
     var arc2 = d3.svg.arc()
         .innerRadius(300)
@@ -59,13 +60,13 @@ function sunburst(dataset){
     var path2 = svg2.datum(dataset[1]).selectAll("path")
         .data(pie)
       .enter().append("path")
-        .attr("fill", function(d, i) { return color(i); })
+        .attr("fill", function(d, i) { return color(i+2); })
         .style("stroke", "#fff")
         .style("fill-rule", "evenodd")
         .attr("d", arc2);
 
 
-    // 3th Donut
+    // 3th Donut //
     // arc
     var arc3 = d3.svg.arc()
         .innerRadius(260)
@@ -75,12 +76,12 @@ function sunburst(dataset){
     var path3 = svg3.datum(dataset[2]).selectAll("path")
         .data(pie)
       .enter().append("path")
-        .attr("fill", function(d, i) { return color(i); })
+        .attr("fill", function(d, i) { return color(i+4); })
         .style("stroke", "#fff")
         .style("fill-rule", "evenodd")
         .attr("d", arc3);
 
-    // 4th Donut
+    // 4th Donut //
     // arc
     var arc4 = d3.svg.arc()
         .innerRadius(220)
@@ -90,12 +91,12 @@ function sunburst(dataset){
     var path4 = svg4.datum(dataset[3]).selectAll("path")
         .data(pie)
       .enter().append("path")
-        .attr("fill", function(d, i) { return color(i); })
+        .attr("fill", function(d, i) { return color(i+6); })
         .style("stroke", "#fff")
         .style("fill-rule", "evenodd")
         .attr("d", arc4);
 
-    // 5th Donut
+    // 5th Donut //
     // arc
     var arc5 = d3.svg.arc()
         .innerRadius(180)
@@ -105,12 +106,12 @@ function sunburst(dataset){
     var path5 = svg5.datum(dataset[4]).selectAll("path")
         .data(pie)
       .enter().append("path")
-        .attr("fill", function(d, i) { return color(i); })
+        .attr("fill", function(d, i) { return color(i+8); })
         .style("stroke", "#fff")
         .style("fill-rule", "evenodd")
         .attr("d", arc5);
 
-    // 6th Donut
+    // 6th Donut  //
     // arc
     var arc6 = d3.svg.arc()
         .innerRadius(140)
@@ -120,7 +121,7 @@ function sunburst(dataset){
     var path6 = svg6.datum(dataset[5]).selectAll("path")
         .data(pie)
       .enter().append("path")
-        .attr("fill", function(d, i) { return color(i); })
+        .attr("fill", function(d, i) { return color(i+10); })
         .style("stroke", "#fff")
         .style("fill-rule", "evenodd")
         .attr("d", arc6);

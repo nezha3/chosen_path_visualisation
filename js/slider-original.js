@@ -10,7 +10,6 @@
 // Otherwise need to vary the code in line 30
 // Please justify the location every slider at x, y from the screen
 // If only use D3.v3, please replace the function scaleLinear at line 41.
-//////////////////////////////////////////////////////////////////////////////
 
 function slider(min, max, x, y, name, id){
 			// Data Domain (min, max)
@@ -149,6 +148,12 @@ function slider(min, max, x, y, name, id){
 						.on("drag", dragged2)
 					);
 
+			// Store Selected Min and Max
+			d3.select("#s" + id + "-min")
+					.text(Math.round(range_x.invert(x1))/times);
+			d3.select("#s" + id + "-max")
+					.text(Math.round(range_x.invert(x2))/times);
+
 
 			// Draw Pointers
 			function calcPointerPoints(handle_val){
@@ -182,9 +187,9 @@ function slider(min, max, x, y, name, id){
 	      range_svg.select(".range-pointer")
 	      		.attr("points", calcPointerPoints(pct));
 
-				// store range
-				range[id-1] = [Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times];
-
+				// Store Selected Min
+				d3.select("#s" + id + "-min")
+						.text(Math.round(range_x.invert(x1))/times);
 			}
 
 			// Deal with Second Pointer Position Change
@@ -210,9 +215,9 @@ function slider(min, max, x, y, name, id){
 	      range_svg.select(".range-pointer2")
 	      		.attr("points", calcPointerPoints(pct));
 
-				// store range
-				range[id-1] = [Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times];
-
+				// Store Selected Max
+				d3.select("#s" + id + "-max")
+					.text(Math.round(range_x.invert(x2))/times);
 			}
 
 			// Reset Position of Pointers
@@ -240,11 +245,7 @@ function slider(min, max, x, y, name, id){
 			      .attr("points", calcPointerPoints(handle_start_val2));
 
 				x1 = 0;
-				x2 = range_width;
-
-				// restore range
-				range[id-1] = [Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times];
+				x2 = 0;
 			}
-
 
 	}

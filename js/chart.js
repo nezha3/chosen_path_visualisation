@@ -1,7 +1,7 @@
 // D3 JS Sunburst chart
 // @ Oliver Chi  2018.05
 // input dataset is an 6*2 Array
-
+//////////////////////////////////////////////////////////////////////////////
 
 // Gobal Varibles
 var range = [[],[],[],[],[],[]]; // Input for sunburst chart
