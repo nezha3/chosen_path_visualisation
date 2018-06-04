@@ -187,8 +187,11 @@ function slider(min, max, location_x, location_y, name, id){
 	      range_svg.select(".range-pointer")
 	      		.attr("points", calcPointerPoints(pct));
 
+				// calculate pecentage for selection in real data
 				// store range
-				range[id-1] = [Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times];
+				var selection_count = percentage(Number(id), Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times)
+				range[id-1] = [selection_count, array_count]; //console.log(selection_count + "  " + array_count);
+
 
 			}
 
@@ -215,8 +218,10 @@ function slider(min, max, location_x, location_y, name, id){
 	      range_svg.select(".range-pointer2")
 	      		.attr("points", calcPointerPoints(pct));
 
+				// calculate pecentage for selection in real data
 				// store range
-				range[id-1] = [Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times];
+				var selection_count = percentage(Number(id), Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times)
+				range[id-1] = [selection_count, array_count]; //console.log(selection_count + "  " + array_count);
 
 			}
 
@@ -250,6 +255,5 @@ function slider(min, max, location_x, location_y, name, id){
 				// restore range
 				range[id-1] = [Math.round(range_x.invert(x1))/times, Math.round(range_x.invert(x2))/times];
 			}
-
 
 	}
